@@ -8,6 +8,7 @@ package listas_simples_estructurast1;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+
 /* Mostrar la cantidad de datos.
 Mostrar el dato mayor.
 Mostrar el dato menor.
@@ -35,20 +36,26 @@ public class Listas_Simples_EstructurasT1 {
 
         //Mostrar todos los datos de la lista.
         OperacionesLista<Integer> ListaOrdenada = new OperacionesLista<>();
-        ListaOrdenada.agregarFinal(11);
-        ListaOrdenada.agregarFinal(33);
-        ListaOrdenada.agregarFinal(4);
-        ListaOrdenada.agregarFinal(99);
-        ListaOrdenada.agregarFinal(88);
-        ListaOrdenada.agregarFinal(22);
+            ListaOrdenada.agregarFinal(11);
+            ListaOrdenada.agregarFinal(33);
+            ListaOrdenada.agregarFinal(4);
+            ListaOrdenada.agregarFinal(99);
+            ListaOrdenada.agregarFinal(88);
+            ListaOrdenada.agregarFinal(11);
         
         
 
         System.out.println(ListaOrdenada.mostrarDatos());
         
         
-//        Integer a = 444, b = 33;
-//        ListaOrdenada.modificarDato(a, b);
+        try {
+            //Integer a = 444, b = 33;
+            boolean a = ListaOrdenada.datoExistente(33);
+        } catch (Exception ex) {
+            Logger.getLogger(Listas_Simples_EstructurasT1.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
         
         System.out.println(ListaOrdenada.mostrarDatos());
     }

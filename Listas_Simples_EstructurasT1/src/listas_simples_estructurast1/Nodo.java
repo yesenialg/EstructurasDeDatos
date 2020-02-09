@@ -9,6 +9,7 @@ package listas_simples_estructurast1;
 /**
  *
  * @author HP
+ * @param <T>
  */
 public class Nodo<T> {
         private T dato;

@@ -14,9 +14,9 @@ public interface InterfazListas<T> {
     
     public double promedioDatos() throws Exception;
     
-    public boolean datoExistente(T d);
+    public boolean datoExistente(T d); //throws Exception;
     
-    public void agregarFinal(T d);
+    public void agregarFinal(T d) throws Exception;
     
     public void agregarOrdenado(T d);
     

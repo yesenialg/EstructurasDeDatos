@@ -105,27 +105,32 @@ public class OperacionesLista<T extends Comparable> implements InterfazListas<T>
 
     //Determinar si un dato ingresado por el usuario existe en la lista.
     @Override
-    public boolean datoExistente(T dato) {
-//        Nodo<T> actual = this.cabeza;
-//        boolean existe = false;
-//        if (actual.obtenerDato() == dato) {
-//            existe = true;
-//        }
-//        while (actual.obtenerSiguienteNodo() != null || existe != true) {
-//            actual = actual.obtenerSiguienteNodo();
-//            if (actual.obtenerDato() == dato) {
-//                existe = true;
-//            }
-//        }
-        return true;
+    public boolean datoExistente(T dato) {//throws Exception{
+        //if(estaVacio()){
+          //  throw new Exception("La lista está vacía");
+        //}else{
+            Nodo<T> actual = this.cabeza;
+            if(actual.obtenerDato().compareTo(dato) == 0){
+                return true;
+            }
+            while (actual != null){
+                actual = actual.obtenerSiguienteNodo();
+                if(actual.obtenerDato().compareTo(dato) == 0){
+                    return true;
+                }
+            //}
+        }
+        return false;
     }
 
     //Insertar nuevos nodos al final de la lista (si el dato ya se encuentra en la lista, no ingresarlo y lanzar excepción).
     @Override
-    public void agregarFinal(T d) {
+    public void agregarFinal(T d) {//throws Exception{
         if (estaVacio()) {
             agregarInicio(d);
-        } else {
+        //} else if(datoExistente(d) == true){
+           // throw new Exception ("El dato ya existe");
+        }else {
             Nodo<T> nuevoNodo = new Nodo<>(d);
             Nodo<T> actual = this.cabeza;
             while (actual.obtenerSiguienteNodo() != null) {
