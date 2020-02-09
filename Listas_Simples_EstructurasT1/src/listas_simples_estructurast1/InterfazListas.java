@@ -6,25 +6,25 @@ public interface InterfazListas<T> {
     
     public String mostrarDatos();
     
-    public void mostrarCantidadDatos();
+    public int mostrarCantidadDatos();
     
-    public void datoMayor();
+    public int datoMayor() throws Exception;
     
-    public void datoMenor();
+    public int datoMenor() throws Exception;
     
-    public void promedioDatos();
+    public double promedioDatos() throws Exception;
     
-    public void datoExistente(T d);
+    public boolean datoExistente(T d);
     
     public void agregarFinal(T d);
     
     public void agregarOrdenado(T d);
     
-    public void eliminarEspecifico(T d);
+    public void eliminarEspecifico(T d) throws Exception;
     
-    public void agregarDespuesDeEspecifico(T d);
+    public void agregarDespuesDeEspecifico(T dN, T dE);
     
-    public void modificarDato(T d);
+    public void modificarDato(T dN, T dE);
     
     public void listaMismoTamaño();
     
