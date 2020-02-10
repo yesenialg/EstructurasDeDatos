@@ -105,24 +105,18 @@ public class OperacionesLista<T extends Comparable> implements InterfazListas<T>
 
     //Determinar si un dato ingresado por el usuario existe en la lista.
     @Override
-    public boolean datoExistente(T dato) {//throws Exception{
-        //if(estaVacio()){
-          //  throw new Exception("La lista está vacía");
-        //}else{
-            Nodo<T> actual = this.cabeza;
-            if(actual.obtenerDato().compareTo(dato) == 0){
-                return true;
-            }
-            while (actual != null){
+    public boolean datoExistente(T dato) {
+        boolean encontrado = false;
+        Nodo<T> actual = this.cabeza;
+        while(actual != null && encontrado != true){
+            if(dato == actual.obtenerDato()){
+            encontrado = true;
+            }else{
                 actual = actual.obtenerSiguienteNodo();
-                if(actual.obtenerDato().compareTo(dato) == 0){
-                    return true;
-                }
-            //}
+            }
         }
-        return false;
+        return encontrado;
     }
-
     //Insertar nuevos nodos al final de la lista (si el dato ya se encuentra en la lista, no ingresarlo y lanzar excepción).
     @Override
     public void agregarFinal(T d) {//throws Exception{
@@ -158,21 +152,18 @@ public class OperacionesLista<T extends Comparable> implements InterfazListas<T>
     }
 
     //Eliminar un nodo con un dato específico ingresado por el usuario.
-    @Override
-    public void eliminarEspecifico(T dato) throws Exception {
-//        if (estaVacio()){
-//            throw new Exception ("La lista está vacía");
-//        }else{
-//            Nodo<T> actual = this.cabeza;
-//            while (actual.obtenerDato() != dato || actual.obtenerSiguienteNodo() != null){
-//                actual = actual.obtenerSiguienteNodo();
-//            }
-//            if (actual.obtenerSiguienteNodo().obtenerDato() != dato){
-//                throw new Exception ("La lista no contiene el dato " + dato);
-//            }else{
-//                actual.asignarSiguienteNodo(actual.obtenerSiguienteNodo());
-//            }
-//        }
+    public void eliminarEspecifico(T dato){
+        if (datoExistente(dato)){
+            Nodo<T> actual = this.cabeza;
+            if(actual.obtenerDato() == dato){
+                this.cabeza = actual.obtenerSiguienteNodo();
+            }else{
+                while(actual.obtenerSiguienteNodo().obtenerDato() != dato){
+                    actual = actual.obtenerSiguienteNodo();
+                }
+                actual.asignarSiguienteNodo(actual.obtenerSiguienteNodo().obtenerSiguienteNodo());
+            }
+        }
     }
 
     //Insertar nuevos nodos después de un dato especificado por el usuario (si no se encuentra el dato, lanzar excepción).

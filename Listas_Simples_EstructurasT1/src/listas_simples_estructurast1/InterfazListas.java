@@ -20,7 +20,7 @@ public interface InterfazListas<T> {
     
     public void agregarOrdenado(T d);
     
-    public void eliminarEspecifico(T d) throws Exception;
+    public void eliminarEspecifico(T d);// throws Exception;
     
     public void agregarDespuesDeEspecifico(T dN, T dE);
     
