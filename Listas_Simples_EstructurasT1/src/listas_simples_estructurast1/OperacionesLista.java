@@ -119,11 +119,11 @@ public class OperacionesLista<T extends Comparable> implements InterfazListas<T>
     }
     //Insertar nuevos nodos al final de la lista (si el dato ya se encuentra en la lista, no ingresarlo y lanzar excepción).
     @Override
-    public void agregarFinal(T d) {//throws Exception{
+    public void agregarFinal(T d) throws Exception{
         if (estaVacio()) {
             agregarInicio(d);
-        //} else if(datoExistente(d) == true){
-           // throw new Exception ("El dato ya existe");
+        } else if(datoExistente(d) == true){
+            throw new Exception ("El dato " + d + " ya existe");
         }else {
             Nodo<T> nuevoNodo = new Nodo<>(d);
             Nodo<T> actual = this.cabeza;
@@ -136,9 +136,11 @@ public class OperacionesLista<T extends Comparable> implements InterfazListas<T>
 
     //Insertar nuevos nodos ordenados de mayor a menor e impedir datos duplicados (si el dato ya se encuentra en la lista, no ingresarlo y lanzar excepción).
     @Override
-    public void agregarOrdenado(T dato) {
+    public void agregarOrdenado(T dato) throws Exception{
         Nodo<T> nuevoNodo = new Nodo<>(dato);
-        if (estaVacio() || dato.compareTo(this.cabeza.obtenerDato()) == -1) {
+        if (datoExistente(dato) == true){
+            throw new Exception ("El dato " + dato + " ya existe");
+        }else if (estaVacio() || dato.compareTo(this.cabeza.obtenerDato()) == -1) {
             nuevoNodo.asignarSiguienteNodo(this.cabeza);
             this.cabeza = nuevoNodo;
         } else {
@@ -152,6 +154,7 @@ public class OperacionesLista<T extends Comparable> implements InterfazListas<T>
     }
 
     //Eliminar un nodo con un dato específico ingresado por el usuario.
+    @Override
     public void eliminarEspecifico(T dato){
         if (datoExistente(dato)){
             Nodo<T> actual = this.cabeza;
@@ -168,35 +171,42 @@ public class OperacionesLista<T extends Comparable> implements InterfazListas<T>
 
     //Insertar nuevos nodos después de un dato especificado por el usuario (si no se encuentra el dato, lanzar excepción).
     @Override
-    public void agregarDespuesDeEspecifico(T datoNuevo, T datoExistente) {
-        Nodo<T> actual = this.cabeza;
+    public void agregarDespuesDeEspecifico(T datoNuevo, T datoExistente) throws Exception {
+        if(datoExistente(datoExistente)){
+            Nodo<T> actual = this.cabeza;
         Nodo<T> nuevoNodo = new Nodo<>(datoNuevo);
         while (actual.obtenerDato() != datoExistente){
             actual = actual.obtenerSiguienteNodo();
         }
         nuevoNodo.asignarSiguienteNodo(actual.obtenerSiguienteNodo());
         actual.asignarSiguienteNodo(nuevoNodo);
+        }else{
+            throw new Exception ("EL DATO " + datoExistente + " NO EXISTE");
+        }
     }
 
     //Modificar el dato de un nodo especifico (solicitar el dato anterior).
     @Override
-    public void modificarDato(T dNuevo, T dExistente) {
-        Nodo<T> actual = this.cabeza;
+    public void modificarDato(T dNuevo, T dExistente) throws Exception{
+        if(datoExistente(dExistente)){
+            Nodo<T> actual = this.cabeza;
         while (actual.obtenerDato() != dExistente){
             actual = actual.obtenerSiguienteNodo();
         }
         actual.asignarDato(dNuevo);
+        }else{
+        throw new Exception ("EL DATO " +dExistente+ " NO EXISTE");
+        }
     }
 
     //Determinar si otra lista tiene el mismo tamaño.
     @Override
-    public void listaMismoTamaño() {
+    public void listaMismoTamaño(OperacionesLista lista) {
     }
 
     //Determinar si otra lista es igual.
     @Override
-    public void mismaLista() {
+    public void mismaLista(OperacionesLista lista) {
     }
-
 
 }

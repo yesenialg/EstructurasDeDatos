@@ -18,16 +18,16 @@ public interface InterfazListas<T> {
     
     public void agregarFinal(T d) throws Exception;
     
-    public void agregarOrdenado(T d);
+    public void agregarOrdenado(T d) throws Exception;
     
-    public void eliminarEspecifico(T d);// throws Exception;
+    public void eliminarEspecifico(T d);
     
-    public void agregarDespuesDeEspecifico(T dN, T dE);
+    public void agregarDespuesDeEspecifico(T dN, T dE) throws Exception;
     
-    public void modificarDato(T dN, T dE);
+    public void modificarDato(T dN, T dE) throws Exception;
     
-    public void listaMismoTamaño();
+    public void listaMismoTamaño(OperacionesLista lis);
     
-    public void mismaLista();
+    public void mismaLista(OperacionesLista lis);
     
 }
