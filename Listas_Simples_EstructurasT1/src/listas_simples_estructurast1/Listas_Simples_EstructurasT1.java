@@ -138,13 +138,44 @@ public class Listas_Simples_EstructurasT1 {
         System.out.println("");
         
         //Determinar si otra lista tiene el mismo tamaño.
+        System.out.println("COMPARAR TAMAÑO DE LISTAS: ");
+        System.out.println("Lista A: ");
+        OperacionesLista<Integer> listaA = new OperacionesLista<>();
+        try {
+            listaA.agregarOrdenado(11);
+            listaA.agregarOrdenado(55);
+            listaA.agregarOrdenado(44);
+        } catch (Exception ex) {
+            Logger.getLogger(Listas_Simples_EstructurasT1.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        System.out.println(listaA.mostrarDatos());
+        
+        System.out.println("Lista B: ");
+        OperacionesLista<Integer> listaB = new OperacionesLista<>();
+        try {
+            listaB.agregarOrdenado(11);
+            listaB.agregarOrdenado(55);
+            listaB.agregarOrdenado(44);
+        } catch (Exception ex) {
+            Logger.getLogger(Listas_Simples_EstructurasT1.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        System.out.println(listaB.mostrarDatos());
+        
+        System.out.println("Son del mismo tamaño?: ");
+        System.out.println(listaA.listaMismoTamano(listaB));
         
         
         System.out.println("");
         
         //Determinar si otra lista es igual.
+        System.out.println("COMPARAR IGUALDAD DE LISTAS: ");
+        System.out.println("Lista A: ");
+        System.out.println(listaA.mostrarDatos());
+        System.out.println("Lista B: ");
+        System.out.println(listaB.mostrarDatos());
+        System.out.println("Son iguales?: ");
+        System.out.println(listaA.mismaLista(listaB));
         
-            
     }
 
 }

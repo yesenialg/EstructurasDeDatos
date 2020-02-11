@@ -26,8 +26,8 @@ public interface InterfazListas<T> {
     
     public void modificarDato(T dN, T dE) throws Exception;
     
-    public void listaMismoTamaño(OperacionesLista lis);
+    public boolean listaMismoTamano(OperacionesLista lisB);
     
-    public void mismaLista(OperacionesLista lis);
+    public boolean mismaLista(OperacionesLista lisB);
     
 }

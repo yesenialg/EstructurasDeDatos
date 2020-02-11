@@ -201,12 +201,46 @@ public class OperacionesLista<T extends Comparable> implements InterfazListas<T>
 
     //Determinar si otra lista tiene el mismo tamaño.
     @Override
-    public void listaMismoTamaño(OperacionesLista lista) {
+    public boolean listaMismoTamano(OperacionesLista listaB) {
+        int tamanoA = 0;
+        Nodo<T> actual = this.cabeza;
+        while (actual != null) {
+            tamanoA += 1;
+            actual = actual.obtenerSiguienteNodo();
+        }
+        
+        int tamanoB = listaB.mostrarCantidadDatos();
+        
+        return tamanoA == tamanoB;
     }
 
     //Determinar si otra lista es igual.
     @Override
-    public void mismaLista(OperacionesLista lista) {
+    public boolean mismaLista(OperacionesLista listaB) {
+        boolean mismotam = listaMismoTamano(listaB);
+        boolean igual = false;
+        if(mismotam == true){
+            int iguales = 0;
+            Nodo<T> actualA = this.cabeza;
+            Nodo<T> actualB = listaB.cabeza;
+            
+            while(actualA != null){
+                if(actualA.obtenerDato() == actualB.obtenerDato()){
+                    iguales++;
+                }
+                actualA = actualA.obtenerSiguienteNodo();
+                actualB = actualB.obtenerSiguienteNodo();
+            }
+            if(iguales == listaB.mostrarCantidadDatos()){
+                igual = true;
+            }else{
+                igual = false;
+            }
+        }
+        else{
+            igual = false;
+        }
+        return igual;
     }
 
 }
