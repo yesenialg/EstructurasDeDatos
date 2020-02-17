@@ -7,12 +7,6 @@ package listas_simples_estructurast1;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-
-
-
-
-
 /**
  *
  * @author HP
