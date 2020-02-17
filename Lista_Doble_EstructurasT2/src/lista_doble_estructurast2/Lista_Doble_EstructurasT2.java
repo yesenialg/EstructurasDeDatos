@@ -31,11 +31,11 @@ public class Lista_Doble_EstructurasT2 {
         //////////////////////////////////Crear lista rdenada sin repetir estudiantes///////////////////////////////////////////////////////////
         DoublyLinkedList EstructuraDatos = new DoublyLinkedList();
         try {
-            EstructuraDatos.InsertarCola(estudiante4);
-            EstructuraDatos.InsertarCola(estudiante2);
-            EstructuraDatos.InsertarCola(estudiante3);
-            EstructuraDatos.InsertarCola(estudiante1);
-            EstructuraDatos.InsertarCola(estudiante5);
+            EstructuraDatos.InsertarCondiciones(estudiante4);
+            EstructuraDatos.InsertarCondiciones(estudiante2);
+            EstructuraDatos.InsertarCondiciones(estudiante3);
+            EstructuraDatos.InsertarCondiciones(estudiante1);
+            EstructuraDatos.InsertarCondiciones(estudiante5);
         } catch (Exception ex) {
             Logger.getLogger(Lista_Doble_EstructurasT2.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -76,6 +76,8 @@ public class Lista_Doble_EstructurasT2 {
         } catch (Exception ex) {
             Logger.getLogger(Lista_Doble_EstructurasT2.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        //System.out.println(EstructuraDatos.AprobadosReprobados());
     }
     
 }

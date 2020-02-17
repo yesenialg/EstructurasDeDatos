@@ -5,6 +5,9 @@
  */
 package lista_doble_estructurast2;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author HP
@@ -13,6 +16,8 @@ public class DoublyLinkedList<T extends Estudiante> implements Lista<Estudiante>
 
     private Nodo<Estudiante> head;
     private Nodo<Estudiante> tail;
+//    public DoublyLinkedList Aprobados = new DoublyLinkedList();
+//    public DoublyLinkedList Reprobados = new DoublyLinkedList();
     
     @Override
     public boolean DatoExistente(Estudiante estBuscar){
@@ -30,27 +35,47 @@ public class DoublyLinkedList<T extends Estudiante> implements Lista<Estudiante>
 
     @Override
     public void InsertarOrdenado(Estudiante est) throws Exception {
-        if (estaVacia() || est.getCedula().compareTo(head.obtenerDato().getCedula()) == 1) {
+        if(estaVacia() || est.getCedula().compareTo(head.obtenerDato().getCedula()) == -1){
             InsertarCabeza(est);
             return;
         }
-        if (est.getCedula().compareTo(tail.obtenerDato().getCedula()) == -1) {
+        if(est.getCedula().compareTo(tail.obtenerDato().getCedula()) == 1){
             InsertarCola(est);
             return;
         }
-        Nodo<Estudiante> nuevoNodo;
-        if(head.obtenerSiguiente() == null){
-            nuevoNodo = new Nodo<>(est,null, head);
-            head.asignarAnterior(nuevoNodo);
-        }else{
-            Nodo<Estudiante> actual = head.obtenerSiguiente();
-            while (actual.obtenerDato().getCedula().compareTo(est.getCedula())==1) {            
-                actual=actual.obtenerSiguiente();
+        Nodo<Estudiante> actual = head.obtenerSiguiente();
+        Nodo<Estudiante> nNodo;
+        while(actual.obtenerDato().getCedula().compareTo(est.getCedula()) == -1){
+            if(actual.obtenerDato().getCedula() == est.getCedula()){
+                throw new Exception ("La cedula a ingresar ya existe");
             }
-            nuevoNodo = new Nodo<>(est,actual.obtenerAnterior(),actual);
-            actual.obtenerAnterior().asignarSiguiente(nuevoNodo);
-            actual.asignarAnterior(nuevoNodo);
+            actual = actual. obtenerSiguiente(); 
         }
+        nNodo = new Nodo<>(est, actual.obtenerAnterior(), actual);
+        actual.obtenerAnterior().asignarSiguiente(nNodo);
+        actual.asignarAnterior(nNodo);
+        
+//        if (estaVacia() || est.getCedula().compareTo(head.obtenerDato().getCedula()) == 1) {
+//            InsertarCabeza(est);
+//            return;
+//        }
+//        if (est.getCedula().compareTo(tail.obtenerDato().getCedula()) == -1) {
+//            InsertarCola(est);
+//            return;
+//        }
+//        Nodo<Estudiante> nuevoNodo;
+//        if(head.obtenerSiguiente() == null){
+//            nuevoNodo = new Nodo<>(est,null, head);
+//            head.asignarAnterior(nuevoNodo);
+//        }else{
+//            Nodo<Estudiante> actual = head.obtenerSiguiente();
+//            while (actual.obtenerDato().getCedula().compareTo(est.getCedula())==1) {            
+//                actual=actual.obtenerSiguiente();
+//            }
+//            nuevoNodo = new Nodo<>(est,actual.obtenerAnterior(),actual);
+//            actual.obtenerAnterior().asignarSiguiente(nuevoNodo);
+//            actual.asignarAnterior(nuevoNodo);
+//        }
     }
 
     @Override
@@ -157,5 +182,37 @@ public class DoublyLinkedList<T extends Estudiante> implements Lista<Estudiante>
         }
         return info;
     }
+
+    @Override
+    public void InsertarCondiciones(Estudiante est) throws Exception {
+        if(est.getNotaFinal() < 3.0){
+            InsertarCola(est);
+        }else{
+            InsertarCabeza(est);
+        }
+    }
     
+    public String AprobadosReprobados (){
+        Nodo<Estudiante> actual = this.head;
+        DoublyLinkedList Aprobados = new DoublyLinkedList();
+        DoublyLinkedList Reprobados = new DoublyLinkedList();
+        while(actual != null){
+            if(actual.obtenerDato().getNotaFinal() < 3.0){
+                try {
+                    Reprobados.InsertarCabeza(actual.obtenerDato());
+                } catch (Exception ex) {
+                    Logger.getLogger(DoublyLinkedList.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }else{
+                try {
+                    Aprobados.InsertarCabeza(actual.obtenerDato());
+                } catch (Exception ex) {
+                    Logger.getLogger(DoublyLinkedList.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+        String listaAR = "Aprobados:  " + Aprobados.MostrarLista() + "-.-.-.-" + "Reprobados:  " + Reprobados.MostrarLista();
+        
+        return listaAR;
+    }
 }

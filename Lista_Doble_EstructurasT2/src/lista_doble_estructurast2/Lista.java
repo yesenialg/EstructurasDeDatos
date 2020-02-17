@@ -28,4 +28,6 @@ public interface Lista<T> {
     public String MostrarBarrioIgual(String barrio);
     
     public String mostrarEstudiante(String cedula) throws Exception;
+    
+    public void InsertarCondiciones(Estudiante est)throws Exception;
 }
