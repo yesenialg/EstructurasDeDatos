@@ -192,27 +192,27 @@ public class DoublyLinkedList<T extends Estudiante> implements Lista<Estudiante>
         }
     }
     
-    public String AprobadosReprobados (){
-        Nodo<Estudiante> actual = this.head;
-        DoublyLinkedList Aprobados = new DoublyLinkedList();
-        DoublyLinkedList Reprobados = new DoublyLinkedList();
-        while(actual != null){
-            if(actual.obtenerDato().getNotaFinal() < 3.0){
-                try {
-                    Reprobados.InsertarCabeza(actual.obtenerDato());
-                } catch (Exception ex) {
-                    Logger.getLogger(DoublyLinkedList.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }else{
-                try {
-                    Aprobados.InsertarCabeza(actual.obtenerDato());
-                } catch (Exception ex) {
-                    Logger.getLogger(DoublyLinkedList.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-        }
-        String listaAR = "Aprobados:  " + Aprobados.MostrarLista() + "-.-.-.-" + "Reprobados:  " + Reprobados.MostrarLista();
-        
-        return listaAR;
-    }
+//    public String AprobadosReprobados (){
+//        Nodo<Estudiante> actual = this.head;
+//        DoublyLinkedList Aprobados = new DoublyLinkedList();
+//        DoublyLinkedList Reprobados = new DoublyLinkedList();
+//        while(actual != null){
+//            if(actual.obtenerDato().getNotaFinal() < 3.0){
+//                try {
+//                    Reprobados.InsertarCabeza(actual.obtenerDato());
+//                } catch (Exception ex) {
+//                    Logger.getLogger(DoublyLinkedList.class.getName()).log(Level.SEVERE, null, ex);
+//                }
+//            }else{
+//                try {
+//                    Aprobados.InsertarCabeza(actual.obtenerDato());
+//                } catch (Exception ex) {
+//                    Logger.getLogger(DoublyLinkedList.class.getName()).log(Level.SEVERE, null, ex);
+//                }
+//            }
+//        }
+//        String listaAR = "Aprobados:  " + Aprobados.MostrarLista() + "-.-.-.-" + "Reprobados:  " + Reprobados.MostrarLista();
+//        
+//        return listaAR;
+//    }
 }
