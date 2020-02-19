@@ -10,42 +10,42 @@ package lista_doble_estructurast2;
  * @author HP
  */
 public class Nodo<T> {
-    
+
     private Estudiante dato;
     private Nodo<Estudiante> NodoSiguiente;
     private Nodo<Estudiante> NodoAnterior;
-    
-    public Nodo(Estudiante est, Nodo nA, Nodo nS){
+
+    public Nodo(Estudiante est, Nodo nA, Nodo nS) {
         asignarDato(est);
         asignarSiguiente(nS);
         asignarAnterior(nA);
     }
-    
-    public Nodo(Estudiante est){
+
+    public Nodo(Estudiante est) {
         this(est, null, null);
     }
 
     public void asignarDato(Estudiante est) {
         this.dato = est;
     }
-    
-    public Estudiante obtenerDato(){
+
+    public Estudiante obtenerDato() {
         return dato;
     }
 
     public void asignarSiguiente(Nodo nS) {
         this.NodoSiguiente = nS;
     }
-    
-    public Nodo obtenerSiguiente(){
+
+    public Nodo obtenerSiguiente() {
         return NodoSiguiente;
     }
 
     public void asignarAnterior(Nodo nA) {
         this.NodoAnterior = nA;
     }
-    
-    public Nodo obtenerAnterior(){
+
+    public Nodo obtenerAnterior() {
         return NodoAnterior;
     }
 }

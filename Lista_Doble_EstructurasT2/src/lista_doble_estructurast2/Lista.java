@@ -10,24 +10,22 @@ package lista_doble_estructurast2;
  * @author HP
  */
 public interface Lista<T> {
-    
+
     public boolean DatoExistente(Estudiante estBuscar);
-    
-    public void InsertarOrdenado(Estudiante est) throws Exception;
-    
+
     public void EliminarEspecifico(Estudiante estEliminar) throws Exception;
-    
-    public void InsertarDespuesEspecifico (Estudiante especifico, Estudiante est) throws Exception;
-    
-    public void InsertarCola(Estudiante est) throws Exception;
-    
+
+    public void InsertarDespuesEspecifico(Estudiante especifico, Estudiante est) throws Exception;
+
+    public void InsertarCola(Estudiante est);
+
     public void InsertarCabeza(Estudiante est) throws Exception;
-    
+
     public String MostrarLista();
-    
+
     public String MostrarBarrioIgual(String barrio);
-    
-    public String mostrarEstudiante(String cedula) throws Exception;
-    
-    public void InsertarCondiciones(Estudiante est)throws Exception;
+
+    public String mostrarEstudiante(String cedula);
+
+    public void InsertarCondiciones(Estudiante est) throws Exception;
 }
