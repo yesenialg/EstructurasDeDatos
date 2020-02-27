@@ -131,8 +131,14 @@ public class Simple<T extends Number & Comparable> implements IList<T> {
         return data;
     }
     
-    public void unirListas(T list){
+    public void unirListas(Simple list){
+        Node<T> chead1 = this.head;
+        Node<T> ctail1 = this.tail;
+        Node<T> chead2 = list.head;
+        Node<T> ctail2 = list.tail;
         
+        ctail1.setNextNode(chead2);
+        ctail2.setNextNode(chead1);
     }
 
 }

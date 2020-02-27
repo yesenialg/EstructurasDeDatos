@@ -24,7 +24,14 @@ public class Double<T> implements IList<T>{
 
     @Override
     public boolean Exists(T d) {
-        return true;
+        DoubleNode<T> current = this.head;
+        while (current != null) {
+            if (current.getData() == d) {
+                return true;
+            }
+            current = current.getNextNode();
+        }
+        return false;
     }
 
     @Override
