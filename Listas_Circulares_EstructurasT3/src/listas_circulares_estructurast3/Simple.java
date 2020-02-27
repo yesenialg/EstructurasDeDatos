@@ -118,7 +118,6 @@ public class Simple<T extends Number & Comparable> implements IList<T> {
 //                throw new Exception("El dato no existe ");
 //            }
         }
-
     }
 
     @Override
@@ -130,6 +129,10 @@ public class Simple<T extends Number & Comparable> implements IList<T> {
             current = current.getNextNode();
         } while (current != head);
         return data;
+    }
+    
+    public void unirListas(T list){
+        
     }
 
 }

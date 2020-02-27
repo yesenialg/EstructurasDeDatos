@@ -50,4 +50,7 @@ public class Double<T> implements IList<T>{
         return data;
     }
     
+    public void dividirLista(T d){
+        
+    }
 }
