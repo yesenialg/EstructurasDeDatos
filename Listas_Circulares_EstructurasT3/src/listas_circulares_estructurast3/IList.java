@@ -13,14 +13,14 @@ public interface IList<T> {
     
     public boolean isEmpty();
     
-    public boolean Exists(T d)throws Exception;
+    public boolean Exists(T d);
     
-    public void addOrdered(T d);
+    public void addOrdered(T d)throws Exception;
     
-    public void delete(T d);
+    public void delete(T d)throws Exception;
     
-    public void update(T dE, T dN);
+    public void update(T dE, T dN)throws Exception;
     
-    public String showList();
+    public String showList()throws Exception;
     
 }

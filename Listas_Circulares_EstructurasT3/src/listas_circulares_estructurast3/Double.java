@@ -28,20 +28,26 @@ public class Double<T> implements IList<T>{
     }
 
     @Override
-    public void addOrdered(T d) {
+    public void addOrdered(T d) throws Exception{
     }
 
     @Override
-    public void delete(T d) {
+    public void delete(T d) throws Exception{
     }
 
     @Override
-    public void update(T dE, T dN) {
+    public void update(T dE, T dN)throws Exception {
     }
-
+    
     @Override
-    public String showList() {
-        return "";
+    public String showList() throws Exception{
+        String data = "";
+        DoubleNode<T> current = this.head;
+        do {
+            data = data + current.getData() + " ";
+            current = current.getNextNode();
+        } while (current != head);
+        return data;
     }
     
 }
