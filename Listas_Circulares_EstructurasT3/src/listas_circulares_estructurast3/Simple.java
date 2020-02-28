@@ -26,14 +26,12 @@ public class Simple<T extends Number & Comparable> implements IList<T> {
     @Override
     public boolean Exists(T d) {
         Node<T> current = this.head;
-
         while (current.getNextNode() != head) {
             if (current.getData() == d) {
                 return true;
             }
             current = current.getNextNode();
         }
-
         return false;
     }
 
@@ -106,7 +104,7 @@ public class Simple<T extends Number & Comparable> implements IList<T> {
         if (isEmpty()) {
             throw new Exception("La lista está vacía ");
         } else {
-//            if(Exists(dE)){
+            //if(Exists(dE)){
             Node<T> current = this.head;
             while (current.getNextNode() != head && !current.getData().equals(dE)) {
                 current = current.getNextNode();

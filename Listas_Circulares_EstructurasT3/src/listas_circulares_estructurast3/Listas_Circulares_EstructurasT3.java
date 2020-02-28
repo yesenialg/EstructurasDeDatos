@@ -26,7 +26,7 @@ public class Listas_Circulares_EstructurasT3 {
 
         Simple<Integer> lista1 = new Simple<>();
 
-        System.out.println("LISTA ORDENADA: ");
+        System.out.println("LISTA ORDENADA DE MAYOR A MENOR: ");
 
         try {
             lista1.addOrdered(555);
@@ -117,16 +117,53 @@ public class Listas_Circulares_EstructurasT3 {
         System.out.println("");
 
         System.out.println(" LISTAS CIRCULARES DOBLES ---------- ");
-        try {
+        
+        System.out.println("");
+        
+        System.out.println("LISTA DE MENOR A MAYOR: ");
+        
             Double<Integer> listDouble1 = new Double<>();
+        try {
             listDouble1.addOrdered(222);
             listDouble1.addOrdered(444);
             listDouble1.addOrdered(888);
             listDouble1.addOrdered(111);
             listDouble1.addOrdered(333);
-            System.out.println("Lista Doble");
             System.out.println(listDouble1.showList());
-        } catch (Exception e) {
+        } catch (Exception ex) {
+            Logger.getLogger(Listas_Circulares_EstructurasT3.class.getName()).log(Level.SEVERE, null, ex);
+        }
+ 
+        System.out.println("");
+
+        System.out.println("ELIMINAR EL ELEMENTO 444: ");
+        
+        try {
+            listDouble1.delete(444);
+            System.out.println(listDouble1.showList());
+        } catch (Exception ex) {
+            Logger.getLogger(Listas_Circulares_EstructurasT3.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        System.out.println("");
+
+        System.out.println("ACTUALIZAR EL DATO 888 POR 555: ");
+        
+        try {
+            listDouble1.update(888, 555);
+            System.out.println(listDouble1.showList());
+        } catch (Exception ex) {
+            Logger.getLogger(Listas_Circulares_EstructurasT3.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        System.out.println("DIVIDIR LA LISTA EN DOS: ");
+        
+        Double<Integer> listDouble2 = new Double<>();
+        try {
+            listDouble1.dividirLista(333, listDouble2);
+            System.out.println(listDouble1.showList());
+        } catch (Exception ex) {
+            Logger.getLogger(Listas_Circulares_EstructurasT3.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

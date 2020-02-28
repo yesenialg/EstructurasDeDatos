@@ -66,35 +66,53 @@ public class Double<T extends Comparable> implements IList<T> {
 
     @Override
     public void addOrdered(T d) throws Exception {
-        try {
-            if (isEmpty() || d.compareTo(head.getData()) == -1) {
-                add(d);
-            } else if (Exists(d)) {
-                System.out.println("Ya existe ese dato");
-            } else {
-                DoubleNode<T> current = this.head;
-                while (d.compareTo(current.getNextNode().getData()) == 1 && current.getNextNode() != head) {
-                    current = current.getNextNode();
-                }
-                if (current == head.getPreviousNode()) {
-                    addLast(d);
-                } else {
-                    DoubleNode<T> newNode = new DoubleNode<>(d, current, current.getNextNode());
-                    current.getNextNode().setPreviousNode(newNode);
-                    current.setNextNode(newNode);
-                }
+        if (isEmpty() || d.compareTo(head.getData()) == -1) {
+            add(d);
+        } else if (Exists(d)) {
+            throw new Exception("Ya existe ese dato");
+        } else {
+            DoubleNode<T> current = this.head;
+            while (d.compareTo(current.getNextNode().getData()) == 1 && current.getNextNode() != head) {
+                current = current.getNextNode();
             }
-        } catch (Exception e) {
-            
+            if (current == head.getPreviousNode()) {
+                addLast(d);
+            } else {
+                DoubleNode<T> newNode = new DoubleNode<>(d, current, current.getNextNode());
+                current.getNextNode().setPreviousNode(newNode);
+                current.setNextNode(newNode);
+            }
         }
     }
 
     @Override
     public void delete(T d) throws Exception {
+        if (isEmpty() || Exists(d)) {
+            throw new Exception("El dato no existe");
+        } else {
+            DoubleNode<T> current = this.head;
+            if (current.getData().equals(d)) {
+                head = current.getNextNode();
+            }
+            while (!current.getData().equals(d)) {
+                current = current.getNextNode();
+            }
+            current.getPreviousNode().setNextNode(current.getNextNode());
+            current.getNextNode().setPreviousNode(current.getPreviousNode());
+        }
     }
 
     @Override
     public void update(T dE, T dN) throws Exception {
+        if (isEmpty() && Exists(dE)) {
+            throw new Exception("El dato no existe ");
+        } else {
+            DoubleNode<T> current = this.head;
+            while (!current.getData().equals(dE)) {
+                current = current.getNextNode();
+            }
+            current.setData(dN);
+        }
     }
 
     @Override
@@ -108,7 +126,18 @@ public class Double<T extends Comparable> implements IList<T> {
         return data;
     }
 
-    public void dividirLista(T d) {
-
+    public void dividirLista(T d, Double Nlist) throws Exception {
+        if (isEmpty() && Exists(d)) {
+            throw new Exception("El dato no existe ");
+        } else {
+            DoubleNode<T> current = this.head;
+            while (!current.getData().equals(d)) {
+                if (!current.getData().equals(d)) {
+                    current = current.getNextNode();
+                } else {
+                    Nlist.addOrdered(current.getData());
+                }
+            }
+        }
     }
 }
