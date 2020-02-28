@@ -29,7 +29,9 @@ public class Listas_Circulares_EstructurasT3 {
         System.out.println("LISTA ORDENADA: ");
 
         try {
+            lista1.addOrdered(555);
             lista1.addOrdered(222);
+            lista1.addOrdered(888);
             lista1.addOrdered(111);
             lista1.addOrdered(333);
         } catch (Exception ex) {
@@ -113,10 +115,19 @@ public class Listas_Circulares_EstructurasT3 {
         }
 
         System.out.println("");
-        
+
         System.out.println(" LISTAS CIRCULARES DOBLES ---------- ");
-        
-        
+        try {
+            Double<Integer> listDouble1 = new Double<>();
+            listDouble1.addOrdered(222);
+            listDouble1.addOrdered(444);
+            listDouble1.addOrdered(888);
+            listDouble1.addOrdered(111);
+            listDouble1.addOrdered(333);
+            System.out.println("Lista Doble");
+            System.out.println(listDouble1.showList());
+        } catch (Exception e) {
+        }
     }
 
 }

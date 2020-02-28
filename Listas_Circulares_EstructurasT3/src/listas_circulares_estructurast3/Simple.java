@@ -27,7 +27,7 @@ public class Simple<T extends Number & Comparable> implements IList<T> {
     public boolean Exists(T d) {
         Node<T> current = this.head;
 
-        while (current != null) {
+        while (current.getNextNode() != head) {
             if (current.getData() == d) {
                 return true;
             }
@@ -59,21 +59,19 @@ public class Simple<T extends Number & Comparable> implements IList<T> {
 
     @Override
     public void addOrdered(T d) throws Exception {
-        Node<T> newNode = new Node<>(d);
-        if (isEmpty() || newNode.getData().compareTo(this.head.getData()) == 1) {
+        if (isEmpty() || d.compareTo(head.getData()) == 1) {
             add(d);
+        } else if (Exists(d)) {
+            System.out.println("Ya existe ese dato");
         } else {
-
             Node<T> current = this.head;
-            while (current.getNextNode() != head && newNode.getData().compareTo(current.getNextNode().getData()) == 1) {
+            while (d.compareTo(current.getNextNode().getData()) == -1 && current.getNextNode() != head) {
                 current = current.getNextNode();
             }
-            if (newNode.getData().compareTo(current.getData()) == 0) {
-                throw new Exception("El dato ya existe ");
-            }
-            if (tail == current) {
+            if (current == tail) {
                 addLast(d);
             } else {
+                Node<T> newNode = new Node<>(d);
                 newNode.setNextNode(current.getNextNode());
                 current.setNextNode(newNode);
             }
@@ -130,13 +128,13 @@ public class Simple<T extends Number & Comparable> implements IList<T> {
         } while (current != head);
         return data;
     }
-    
-    public void unirListas(Simple list){
+
+    public void unirListas(Simple list) {
         Node<T> chead1 = this.head;
         Node<T> ctail1 = this.tail;
         Node<T> chead2 = list.head;
         Node<T> ctail2 = list.tail;
-        
+
         ctail1.setNextNode(chead2);
         ctail2.setNextNode(chead1);
     }
