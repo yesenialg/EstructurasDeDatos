@@ -125,7 +125,7 @@ public class Double<T extends Comparable> implements IList<T> {
         } while (current != head);
         return data;
     }
-
+    
     public void dividirLista(T d, Double Nlist) throws Exception {
         if (isEmpty() && Exists(d)) {
             throw new Exception("El dato no existe ");
