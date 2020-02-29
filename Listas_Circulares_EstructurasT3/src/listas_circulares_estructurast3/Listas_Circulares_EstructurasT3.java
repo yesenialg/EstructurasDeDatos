@@ -157,22 +157,8 @@ public class Listas_Circulares_EstructurasT3 {
         } catch (Exception ex) {
             Logger.getLogger(Listas_Circulares_EstructurasT3.class.getName()).log(Level.SEVERE, null, ex);
         }
-        System.out.println("");
-//        
-//        //System.out.println("DIVIDIR LA LISTA EN DOS DESDE 222: ");
-//        //System.out.println("La lista a dividir es: ");
-//        //Double<Integer> listDouble2 = new Double<>();
-//        //try {
-//        //    System.out.println(listDouble1.showList());
-//        //    listDouble1.dividirLista(222, listDouble2);
-//        //    System.out.println("La lista 1 es: ");
-//        //    System.out.println(listDouble1.showList());
-//        //    System.out.println("La lista 2 es: ");
-//        //    System.out.println(listDouble2.showList());
-//        //} catch (Exception ex) {
-//        //    Logger.getLogger(Listas_Circulares_EstructurasT3.class.getName()).log(Level.SEVERE, null, ex);
-//        //}
 
+        
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     ////PARA EL CASO PRÁCTICO, HACER EXTENDS STRING EN LA CLASE DOUBLE//// 
 

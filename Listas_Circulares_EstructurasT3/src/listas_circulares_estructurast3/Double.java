@@ -146,24 +146,4 @@ public class Double<T extends Number & Comparable> implements IList<T> { ///////
                 System.out.println(e);
             }
     }
-
-//    public void dividirLista(T d, Double Nlist) throws Exception {
-//        if (isEmpty() && Exists(d)) {
-//            throw new Exception("El dato no existe ");
-//        } else {
-//            DoubleNode<T> current = this.head;
-//
-//            while (!current.getData().equals(d)) {
-//                current = current.getNextNode();
-//            }
-//            while (current.getNextNode() != head) {
-//                Nlist.addOrdered(current.getData());
-//                current = current.getNextNode();
-//            }
-//            if (current.getNextNode() == head) {
-//                Nlist.addOrdered(current.getData());
-//                current.setNextNode(Nlist.head);
-//            }
-//        }
-//    }
 }
