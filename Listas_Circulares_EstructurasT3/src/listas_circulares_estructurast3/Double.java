@@ -131,12 +131,17 @@ public class Double<T extends Comparable> implements IList<T> {
             throw new Exception("El dato no existe ");
         } else {
             DoubleNode<T> current = this.head;
+            
             while (!current.getData().equals(d)) {
-                if (!current.getData().equals(d)) {
-                    current = current.getNextNode();
-                } else {
-                    Nlist.addOrdered(current.getData());
-                }
+                current = current.getNextNode();
+            }
+            while (current.getNextNode() != head){
+                Nlist.addOrdered(current.getData());
+                current = current.getNextNode();
+            }
+            if(current.getNextNode() == head){
+                Nlist.addOrdered(current.getData());
+                current.setNextNode(Nlist.head);
             }
         }
     }

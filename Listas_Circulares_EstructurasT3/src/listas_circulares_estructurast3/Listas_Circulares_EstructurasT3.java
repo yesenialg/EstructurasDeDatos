@@ -129,6 +129,7 @@ public class Listas_Circulares_EstructurasT3 {
             listDouble1.addOrdered(888);
             listDouble1.addOrdered(111);
             listDouble1.addOrdered(333);
+            listDouble1.addOrdered(666);
             System.out.println(listDouble1.showList());
         } catch (Exception ex) {
             Logger.getLogger(Listas_Circulares_EstructurasT3.class.getName()).log(Level.SEVERE, null, ex);
@@ -156,12 +157,19 @@ public class Listas_Circulares_EstructurasT3 {
             Logger.getLogger(Listas_Circulares_EstructurasT3.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        System.out.println("DIVIDIR LA LISTA EN DOS: ");
+        System.out.println("");
         
+        System.out.println("DIVIDIR LA LISTA EN DOS DESDE 333: ");
+        
+        System.out.println("La lista a dividir es: ");
         Double<Integer> listDouble2 = new Double<>();
         try {
-            listDouble1.dividirLista(333, listDouble2);
             System.out.println(listDouble1.showList());
+            listDouble1.dividirLista(222, listDouble2);
+            System.out.println("La lista 1 es: ");
+            System.out.println(listDouble1.showList());
+            System.out.println("La lista 2 es: ");
+            System.out.println(listDouble2.showList());
         } catch (Exception ex) {
             Logger.getLogger(Listas_Circulares_EstructurasT3.class.getName()).log(Level.SEVERE, null, ex);
         }
