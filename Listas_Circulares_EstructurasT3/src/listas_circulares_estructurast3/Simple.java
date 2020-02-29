@@ -121,7 +121,7 @@ public class Simple<T extends Number & Comparable> implements IList<T> {
         String data = "";
         Node<T> current = this.head;
         do {
-            data = data + current.getData() + " ";
+            data = data + current.getData() + " - ";
             current = current.getNextNode();
         } while (current != head);
         return data;

@@ -7,9 +7,11 @@ package listas_circulares_estructurast3;
 
 /**
  *
- * @author HP
+ * @author
  */
-public class Double<T extends Number & Comparable> implements IList<T> {
+public class Double<T extends Number & Comparable> implements IList<T> { ///////PARA LISTAS QUE CONTENGAN ENTEROS////////
+//public class Double<T extends String> implements IList<T> { ///////PARA LISTAS QUE CONTENGAS STRING///////
+    
 
     DoubleNode<T> head;
 
@@ -145,23 +147,23 @@ public class Double<T extends Number & Comparable> implements IList<T> {
             }
     }
 
-    public void dividirLista(T d, Double Nlist) throws Exception {
-        if (isEmpty() && Exists(d)) {
-            throw new Exception("El dato no existe ");
-        } else {
-            DoubleNode<T> current = this.head;
-
-            while (!current.getData().equals(d)) {
-                current = current.getNextNode();
-            }
-            while (current.getNextNode() != head) {
-                Nlist.addOrdered(current.getData());
-                current = current.getNextNode();
-            }
-            if (current.getNextNode() == head) {
-                Nlist.addOrdered(current.getData());
-                current.setNextNode(Nlist.head);
-            }
-        }
-    }
+//    public void dividirLista(T d, Double Nlist) throws Exception {
+//        if (isEmpty() && Exists(d)) {
+//            throw new Exception("El dato no existe ");
+//        } else {
+//            DoubleNode<T> current = this.head;
+//
+//            while (!current.getData().equals(d)) {
+//                current = current.getNextNode();
+//            }
+//            while (current.getNextNode() != head) {
+//                Nlist.addOrdered(current.getData());
+//                current = current.getNextNode();
+//            }
+//            if (current.getNextNode() == head) {
+//                Nlist.addOrdered(current.getData());
+//                current.setNextNode(Nlist.head);
+//            }
+//        }
+//    }
 }
