@@ -9,7 +9,7 @@ package listas_circulares_estructurast3;
  *
  * @author HP
  */
-public class Double<T extends Comparable> implements IList<T> {
+public class Double<T extends Number & Comparable> implements IList<T> {
 
     DoubleNode<T> head;
 
@@ -120,26 +120,45 @@ public class Double<T extends Comparable> implements IList<T> {
         String data = "";
         DoubleNode<T> current = this.head;
         do {
-            data = data + current.getData() + " ";
+            data = data + current.getData() + " - ";
             current = current.getNextNode();
         } while (current != head);
         return data;
     }
-    
+
+    public void PracticoshowList() throws Exception {
+        DoubleNode<T> current = this.head;
+        while (current.getNextNode() != head) {
+            System.out.println(current.getData());
+            try {
+                Thread.sleep(2 * 1000);
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+            current = current.getNextNode();
+        }
+        System.out.println(current.getData());
+        try {
+                Thread.sleep(2 * 1000);
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+    }
+
     public void dividirLista(T d, Double Nlist) throws Exception {
         if (isEmpty() && Exists(d)) {
             throw new Exception("El dato no existe ");
         } else {
             DoubleNode<T> current = this.head;
-            
+
             while (!current.getData().equals(d)) {
                 current = current.getNextNode();
             }
-            while (current.getNextNode() != head){
+            while (current.getNextNode() != head) {
                 Nlist.addOrdered(current.getData());
                 current = current.getNextNode();
             }
-            if(current.getNextNode() == head){
+            if (current.getNextNode() == head) {
                 Nlist.addOrdered(current.getData());
                 current.setNextNode(Nlist.head);
             }

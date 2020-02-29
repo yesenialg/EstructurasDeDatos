@@ -121,20 +121,20 @@ public class Listas_Circulares_EstructurasT3 {
 //
 //        System.out.println("");
 //
-//        System.out.println("LISTA DE MENOR A MAYOR: ");
-//
-//        Double<Integer> listDouble1 = new Double<>();
-//        try {
-//            listDouble1.addOrdered(222);
-//            listDouble1.addOrdered(444);
-//            listDouble1.addOrdered(888);
-//            listDouble1.addOrdered(111);
-//            listDouble1.addOrdered(333);
-//            listDouble1.addOrdered(666);
-//            System.out.println(listDouble1.showList());
-//        } catch (Exception ex) {
-//            Logger.getLogger(Listas_Circulares_EstructurasT3.class.getName()).log(Level.SEVERE, null, ex);
-//        }
+        System.out.println("LISTA DE MENOR A MAYOR: ");
+
+        Double<Integer> listDouble1 = new Double<>();
+        try {
+            listDouble1.addOrdered(222);
+            listDouble1.addOrdered(444);
+            listDouble1.addOrdered(888);
+            listDouble1.addOrdered(111);
+            listDouble1.addOrdered(333);
+            listDouble1.addOrdered(666);
+            System.out.println(listDouble1.showList());
+        } catch (Exception ex) {
+            Logger.getLogger(Listas_Circulares_EstructurasT3.class.getName()).log(Level.SEVERE, null, ex);
+        }
 //
 //        System.out.println("");
 //
@@ -161,33 +161,32 @@ public class Listas_Circulares_EstructurasT3 {
 //        
 //        System.out.println("DIVIDIR LA LISTA EN DOS DESDE 222: ");
 //        
-//        System.out.println("La lista a dividir es: ");
-//        Double<Integer> listDouble2 = new Double<>();
-//        try {
-//            System.out.println(listDouble1.showList());
-//            listDouble1.dividirLista(222, listDouble2);
-//            System.out.println("La lista 1 es: ");
-//            System.out.println(listDouble1.showList());
-//            System.out.println("La lista 2 es: ");
-//            System.out.println(listDouble2.showList());
-//        } catch (Exception ex) {
-//            Logger.getLogger(Listas_Circulares_EstructurasT3.class.getName()).log(Level.SEVERE, null, ex);
-//        }
+        System.out.println("La lista a dividir es: ");
+        Double<Integer> listDouble2 = new Double<>();
+        try {
+            System.out.println(listDouble1.showList());
+            listDouble1.dividirLista(222, listDouble2);
+            System.out.println("La lista 1 es: ");
+            System.out.println(listDouble1.showList());
+            System.out.println("La lista 2 es: ");
+            System.out.println(listDouble2.showList());
+        } catch (Exception ex) {
+            Logger.getLogger(Listas_Circulares_EstructurasT3.class.getName()).log(Level.SEVERE, null, ex);
+        }
 ////////////////////////////// CASO PRÁCTICO /////////////////////////////////////////// 
         System.out.println("");
         System.out.println("------------------");
         System.out.println("");
         System.out.println("CASO PRACTICO");
-        System.out.println("");
 
-        Scanner sn = new Scanner(System.in);
         boolean salir = false;
         int opcion;
         Double<String> listaReproduccion = new Double<>();
-
-        System.out.println("LISTA DE REPRODUCCION DE VIDEOS");
+        Scanner sn = new Scanner(System.in);
 
         while (!salir) {
+            System.out.println("");
+            System.out.println("LISTA DE REPRODUCCION DE VIDEOS");
             System.out.println("1. Agregar video");
             System.out.println("2. Eliminar");
             System.out.println("3. Actualizar");
@@ -200,49 +199,25 @@ public class Listas_Circulares_EstructurasT3 {
 
             switch (opcion) {
                 case 1:
-                    String cancionAg;
-                    System.out.println("Ingrese el nombre dela nueva cancion: ");
-                    cancionAg = sn.nextLine();
-                    try {
-                        listaReproduccion.addOrdered(cancionAg);
-                    } catch (Exception ex) {
-                        Logger.getLogger(Listas_Circulares_EstructurasT3.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+                    agregar(listaReproduccion);
                     break;
                 case 2:
-                    String cancionEl;
-                    System.out.println("Ingrese el nombre de la canción a eliminar: ");
-                    cancionEl = sn.nextLine();
-                    try {
-                        listaReproduccion.delete(cancionEl);
-                    } catch (Exception ex) {
-                        Logger.getLogger(Listas_Circulares_EstructurasT3.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+                    eliminar(listaReproduccion);
                     break;
                 case 3:
-                    String cancionAc,
-                     cancionAn;
-                    System.out.println("Ingrese el nombre de cancion que quiere actualizar: ");
-                    cancionAc = sn.nextLine();
-                    System.out.println("Ingrese el nuevo nombre de cancion: ");
-                    cancionAn = sn.nextLine();
-                    try {
-                        listaReproduccion.update(cancionAc, cancionAn);
-                    } catch (Exception ex) {
-                        Logger.getLogger(Listas_Circulares_EstructurasT3.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+                    actualizar(listaReproduccion);
                     break;
                 case 4:
-                    System.out.println("Lista actual: ");
+                    mostrar(listaReproduccion);
+                    break;
+                case 5: {
                     try {
-                        listaReproduccion.showList();
+                        listaReproduccion.PracticoshowList();
                     } catch (Exception ex) {
                         Logger.getLogger(Listas_Circulares_EstructurasT3.class.getName()).log(Level.SEVERE, null, ex);
                     }
-
-                    break;
-                case 5:
-                    break;
+                }
+                break;
                 case 6:
                     salir = true;
                     break;
@@ -253,4 +228,51 @@ public class Listas_Circulares_EstructurasT3 {
 
     }
 
+    public static void agregar(Double listaReproduccion) {
+        Scanner sn = new Scanner(System.in);
+        String cancionAg;
+        System.out.println("Ingrese el nombre dela nueva cancion: ");
+        cancionAg = sn.nextLine();
+        try {
+            listaReproduccion.addOrdered(cancionAg);
+        } catch (Exception ex) {
+            Logger.getLogger(Listas_Circulares_EstructurasT3.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public static void eliminar(Double listaReproduccion) {
+        Scanner sn = new Scanner(System.in);
+        String cancionEl;
+        System.out.println("Ingrese el nombre de la canción a eliminar: ");
+        cancionEl = sn.nextLine();
+        try {
+            listaReproduccion.delete(cancionEl);
+        } catch (Exception ex) {
+            Logger.getLogger(Listas_Circulares_EstructurasT3.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public static void actualizar(Double listaReproduccion) {
+        Scanner sn = new Scanner(System.in);
+        String cancionAc,
+                cancionAn;
+        System.out.println("Ingrese el nombre de cancion que quiere actualizar: ");
+        cancionAc = sn.nextLine();
+        System.out.println("Ingrese el nuevo nombre de cancion: ");
+        cancionAn = sn.nextLine();
+        try {
+            listaReproduccion.update(cancionAc, cancionAn);
+        } catch (Exception ex) {
+            Logger.getLogger(Listas_Circulares_EstructurasT3.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public static void mostrar(Double listaReproduccion) {
+        System.out.println("Lista actual: ");
+        try {
+            System.out.println(listaReproduccion.showList());
+        } catch (Exception ex) {
+            Logger.getLogger(Listas_Circulares_EstructurasT3.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }
