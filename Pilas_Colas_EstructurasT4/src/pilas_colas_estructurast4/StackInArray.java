@@ -27,15 +27,15 @@ public class StackInArray {
         return top == 0 && max == a;
     }
 
-    public Object peekTop() {
+    public Object peekPila1() {
         return data[top - 1];
     }
     
-    public Object peekMax() {
+    public Object peekPila2() {
         return data[max];
     }
 
-    public Object popTop() {
+    public Object popPila1() {
         if (empty()) {
             return null;
         } else {
@@ -45,7 +45,7 @@ public class StackInArray {
         }
     }
     
-    public Object popMax() {
+    public Object popPila2() {
         if (empty()) {
             return null;
         } else {
@@ -56,7 +56,7 @@ public class StackInArray {
         }
     }
 
-    public Object pushTop(Object item) {
+    public Object pushPila1(Object item) {
 
         if (top == max) {
             return null;
@@ -66,7 +66,7 @@ public class StackInArray {
         }
     }
     
-    public Object pushMax(Object item) {
+    public Object pushPila2(Object item) {
 
         if (top == max) {
             return null;
