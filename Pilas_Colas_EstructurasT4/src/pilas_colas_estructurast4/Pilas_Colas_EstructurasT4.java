@@ -56,19 +56,55 @@ public class Pilas_Colas_EstructurasT4 {
         /////////////////EVALUAR EXPRESION MATEMATICA///////////////////////////////
         StackInArray array = new StackInArray(6);
 
-        array.pushMax(111);
-        array.pushMax(222);
-        array.pushMax(333);
-        System.out.println(array.popMax());
-        System.out.println(array.peekMax());
-        System.out.println(array.pushMax(444));
-        System.out.println(array.pushTop(555));
-        System.out.println(array.peekTop());
-        System.out.println(array.pushTop(666));
-        System.out.println(array.popTop());
-        System.out.println(array.peekTop());
-        System.out.println(array.pushTop(666));
-        System.out.println(array.pushTop(666));
+//        array.pushMax(111);
+//        array.pushMax(222);
+//        array.pushMax(333);
+//        System.out.println(array.popMax());
+//        System.out.println(array.peekMax());
+//        System.out.println(array.pushMax(444));
+//        System.out.println(array.pushTop(555));
+//        System.out.println(array.peekTop());
+//        System.out.println(array.pushTop(666));
+//        System.out.println(array.popTop());
+//        System.out.println(array.peekTop());
+//        System.out.println(array.pushTop(666));
+//        System.out.println(array.pushTop(666));
+        /////////////////EVALUAR EXPRESION MATEMATICA///////////////////////////////
+        StackInLinkedList list = new StackInLinkedList();
+
+        System.out.println(list.pushPila1(111));
+        System.out.println(list.pushPila1(222));
+        System.out.println(list.pushPila2(333));
+        System.out.println(list.pushPila2(444));
+        System.out.println(list.popPila2());    
+        System.out.println(list.popPila1());
+        System.out.println(list.popPila2());    
+        System.out.println(list.popPila1());
+        System.out.println(list.popPila2());    
+        System.out.println(list.popPila1());
+
+//        System.out.println("");
+//        System.out.println(list.peekPila1());    //333    
+//        System.out.println(list.peekPila2());    //444
+//        System.out.println("");
+//        System.out.println(list.pushPila2(555)); 
+//        System.out.println(list.pushPila2(666));
+//        System.out.println("");
+//        System.out.println(list.popPila2());    //666
+//        System.out.println(list.popPila1());    //222
+//        System.out.println("");
+//        System.out.println(list.peekPila1());   //111
+//        System.out.println(list.peekPila2());   //555
+//        System.out.println("");
+//            //555
+//        System.out.println(list.popPila1());    //111
+//        System.out.println(list.popPila2());    
+//        System.out.println(list.popPila1());
+//        System.out.println(list.popPila2());    
+//        System.out.println(list.popPila1());
+//        System.out.println(list.popPila2());
+        System.out.println("");
+
     }
 
 }
