@@ -138,6 +138,24 @@ public class BinarySearchTree {
         }
     }
 
+    public void AllDelete() {
+        deleteAll();
+        root = null;
+        nodes = 0;
+        leaves = 0;
+    }
+
+    private void deleteAll() {
+        if (root.getLeft() != null) {
+            Delete(root.getLeft().getData());
+            deleteAll();
+        }
+        if (root.getRight() != null) {
+            Delete(root.getRight().getData());
+            deleteAll();
+        }
+    }
+
     public void Delete(int data) {
         if (root == null) {
             System.out.print("Árbol vacío");
@@ -199,32 +217,14 @@ public class BinarySearchTree {
         }
     }
 
-    public void AllDelete() {
-        deleteAll();
-        root = null;
-        nodes = 0;
-        leaves = 0;
-    }
-
-    private void deleteAll() {
-        if (root.getLeft() != null) {
-            Delete(root.getLeft().getData());
-            deleteAll();
-        }
-        if (root.getRight() != null) {
-            Delete(root.getRight().getData());
-            deleteAll();
-        }
-    }
-
     private void levelDown(BinaryNode currentRoot) {
-        if (root != null) {
+        if (currentRoot != null) {
             currentRoot.setLevel(currentRoot.getLevel() - 1);
             levelDown(currentRoot.getLeft());
             levelDown(currentRoot.getRight());
         }
     }
-
+    
     public BinaryNode getMinor(BinaryNode currentRoot) {
         if (currentRoot.getLeft() == null) {
             return currentRoot;
