@@ -11,7 +11,7 @@ package arbolesbinarios;
  */
 public class BinarySearchTree {
 
-    private BinaryNode root;
+    BinaryNode root;
     private BinaryNode father;
     private boolean position;
     private int nodes;
@@ -22,7 +22,7 @@ public class BinarySearchTree {
     public BinarySearchTree() {
         root = null;
     }
-
+    
     public BinarySearchTree(int data) {
         root = new BinaryNode(data);
         nodes++;

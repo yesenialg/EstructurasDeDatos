@@ -6,6 +6,7 @@
 package trabajo_final;
 
 import java.awt.Graphics;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -16,6 +17,8 @@ public class TrabajoFinal extends javax.swing.JFrame {
     int x = 40;
     int y = 40;
     int n = 0;
+    BinarySearchTree arbol = new BinarySearchTree();
+    JOptionPane t;
 
     /**
      * Creates new form TrabajoFinal
@@ -33,38 +36,69 @@ public class TrabajoFinal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton1 = new javax.swing.JButton();
         btnCrearNodo = new javax.swing.JButton();
         txtDat = new javax.swing.JTextField();
+        btnLimpiar = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
+        lbAdvertencias = new javax.swing.JLabel();
+
+        jButton1.setText("jButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(640, 360));
+        setPreferredSize(new java.awt.Dimension(1200, 500));
         setResizable(false);
 
-        btnCrearNodo.setText("crear Nodo");
+        btnCrearNodo.setText("Ingresar Nodos");
         btnCrearNodo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCrearNodoActionPerformed(evt);
             }
         });
 
+        btnLimpiar.setText("Limpiar");
+        btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimpiarActionPerformed(evt);
+            }
+        });
+
+        btnEliminar.setText("Eliminar Nodos");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
+
+        lbAdvertencias.setName(""); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(34, Short.MAX_VALUE)
-                .addComponent(txtDat, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lbAdvertencias, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtDat, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnCrearNodo)
-                .addGap(110, 110, 110))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnLimpiar)
+                .addGap(33, 33, 33)
+                .addComponent(btnEliminar)
+                .addGap(58, 58, 58))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(228, Short.MAX_VALUE)
+                .addContainerGap(269, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCrearNodo)
-                    .addComponent(txtDat, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtDat, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnLimpiar)
+                    .addComponent(btnEliminar)
+                    .addComponent(lbAdvertencias, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(49, 49, 49))
         );
 
@@ -73,51 +107,95 @@ public class TrabajoFinal extends javax.swing.JFrame {
 
     private void btnCrearNodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearNodoActionPerformed
         // TODO add your handling code here:
+        leerTxt(1);
+    }//GEN-LAST:event_btnCrearNodoActionPerformed
 
+    public void leerTxt(int action) {
         String tex = txtDat.getText().toString();
         String[] aux3 = tex.split(",");
         int contAux = 0;
         int contAux2 = 0;
+        int contAux3 = 0;
 
         if (aux3.length > 0) {
-            //System.out.print("bien" + aux3.length);
             for (int i = 0; i <= aux3.length - 1; i++) {
                 String elementoXPocion = aux3[i];
-                for (int e = 0; e < elementoXPocion.length(); e++) {
-                    if (!Character.isDigit(aux3[i].charAt(e))) {
-                        contAux++;
-                    } else {
-                        contAux2++;
+                if (elementoXPocion.equals("")) {
+                    System.out.println("Despues de cada coma debe ir un número");
+                    lbAdvertencias.setText("Despues de cada coma debe ir un número");
+                    JOptionPane.showMessageDialog(this, "Despues de cada coma debe ir un número", "Error!", JOptionPane.OK_CANCEL_OPTION);
+                    contAux3++;
+                } else {
+
+                    for (int e = 0; e < elementoXPocion.length(); e++) {
+                        if (!Character.isDigit(aux3[i].charAt(e))) {
+                            contAux++;
+                        } else {
+                            contAux2++;
+                        }
                     }
                 }
             }
-            if (contAux == 0) {
-                Graphics p = this.getGraphics();
-                p.drawOval(x, y, 40, 40);
-                String [] numeros = txtDat.getText().toString().split(",");
-                if(numeros.length > 9){
+
+            if (contAux == 0 && contAux3 == 0) {
+                String[] numeros;
+                if (txtDat.getText().contains(",")) {
+                    numeros = txtDat.getText().split(",");
+                } else {
+                    numeros = txtDat.getText().split("");
+                }
+                if (numeros.length > 9) {
                     System.out.print("El límite de números es 9");
-                }else{
-                CrearArbol(numeros);
+                    lbAdvertencias.setText("El límite de números es 9");
+                    JOptionPane.showMessageDialog(this, "El límite de números es 9", "Error!", JOptionPane.OK_CANCEL_OPTION);
+                } else {
+                    if (action == 1) {
+                        CrearArbol(numeros);
+                        Mostrar();
+                    } else if (action == 2) {
+                        eliminar(numeros);
+                        Graphics p = this.getGraphics();
+                        super.paintComponents(p);
+                        Mostrar();
+                    }
                 }
             } else {
                 System.out.print("Debe colocar numeros separados por coma");
+                lbAdvertencias.setText("Debe colocar numeros separados por coma");
+                JOptionPane.showMessageDialog(this, "Debe colocar numeros separados por coma", "Error!", JOptionPane.OK_CANCEL_OPTION);
             }
         }
-    }//GEN-LAST:event_btnCrearNodoActionPerformed
+    }
 
-    
-    private void CrearArbol(String [] numeros) {
-        BinarySearchTree arbol = new BinarySearchTree();
-        for (int i = 0; i < numeros.length; i++){
-            arbol.Add(Integer.parseInt(numeros[i]));
+
+    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
+        arbol.AllDelete();
+        Graphics p = this.getGraphics();
+        super.paintComponents(p);
+    }//GEN-LAST:event_btnLimpiarActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        leerTxt(2);
+    }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void CrearArbol(String[] numeros) {
+        for (int i = 0; i < numeros.length; i++) {
+            arbol.Add(Integer.parseInt(numeros[i]), lbAdvertencias, t, this);
         }
         arbol.LevelOrder();
     }
-    
-    
-    
-    
+
+    private void Mostrar() {
+        Graphics p = this.getGraphics();
+        arbol.graficar(p);
+    }
+
+    private void eliminar(String[] numeros) {
+        for (int i = 0; i < numeros.length; i++) {
+            arbol.Delete(Integer.parseInt(numeros[i]));
+        }
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -155,8 +233,11 @@ public class TrabajoFinal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCrearNodo;
+    private javax.swing.JButton btnEliminar;
+    private javax.swing.JButton btnLimpiar;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel lbAdvertencias;
     private javax.swing.JTextField txtDat;
     // End of variables declaration//GEN-END:variables
-
 
 }
