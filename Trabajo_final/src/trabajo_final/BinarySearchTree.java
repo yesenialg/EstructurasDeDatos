@@ -5,6 +5,7 @@
  */
 package trabajo_final;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.util.ArrayList;
 import javax.swing.JLabel;
@@ -235,6 +236,7 @@ public class BinarySearchTree {
 
     public void graficar(Graphics p) {
         if (root != null) {
+            p.setColor(Color.YELLOW);
             p.drawOval(x, y, 30, 30);
             p.drawString(String.valueOf(root.getData()), x + 10, y + 20);
             graficar(root, p, 0, x, y);
@@ -275,8 +277,13 @@ public class BinarySearchTree {
                 p.drawString(String.valueOf(currentRoot.getData()), x + 10, y + 20);
                 p.drawLine(x, y + 10, x - (b - 30), y - 40);
             }
+            p.setColor(Color.RED);
             graficar(currentRoot.getLeft(), p, 1, x, y);
+            p.setColor(Color.BLUE);
             graficar(currentRoot.getRight(), p, 2, x, y);
+             
+
+
         }
     }
 }

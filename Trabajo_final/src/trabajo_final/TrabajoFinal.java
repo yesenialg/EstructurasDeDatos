@@ -49,6 +49,7 @@ public class TrabajoFinal extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(1200, 500));
         setResizable(false);
 
+        btnCrearNodo.setBackground(new java.awt.Color(255, 255, 0));
         btnCrearNodo.setText("Ingresar Nodos");
         btnCrearNodo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -56,6 +57,7 @@ public class TrabajoFinal extends javax.swing.JFrame {
             }
         });
 
+        btnLimpiar.setBackground(new java.awt.Color(0, 0, 204));
         btnLimpiar.setText("Limpiar");
         btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -63,6 +65,7 @@ public class TrabajoFinal extends javax.swing.JFrame {
             }
         });
 
+        btnEliminar.setBackground(new java.awt.Color(255, 0, 51));
         btnEliminar.setText("Eliminar Nodos");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -172,10 +175,14 @@ public class TrabajoFinal extends javax.swing.JFrame {
         arbol.AllDelete();
         Graphics p = this.getGraphics();
         super.paintComponents(p);
+        lbAdvertencias.setText(null);
+        txtDat.setText(null);
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         leerTxt(2);
+        txtDat.setText(null);
+        lbAdvertencias.setText(null);
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void CrearArbol(String[] numeros) {
